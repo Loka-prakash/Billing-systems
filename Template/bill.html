@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bill</title>
+
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #4e73df;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f2f6ff;
+        }
+
+        p {
+            font-size: 15px;
+            margin: 6px 0;
+            color: #333;
+        }
+
+        hr {
+            margin: 25px 0;
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        /* Summary Section Styling */
+        p strong {
+            font-weight: 600;
+        }
+
+        /* Balance Section */
+        h3:last-of-type {
+            margin-top: 30px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            table {
+                font-size: 13px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h3>Customer Email: {{ email }}</h3>
+
+<h3>Bill Section</h3>
+
+<table>
+<tr>
+    <th>Product ID</th>
+    <th>Unit Price</th>
+    <th>Quantity</th>
+    <th>Purchase Price</th>
+    <th>Tax %</th>
+    <th>Tax Payable</th>
+    <th>Total Price</th>
+</tr>
+
+{% for p in products %}
+<tr>
+    <td>{{ p.pid }}</td>
+    <td>{{ p.price }}</td>
+    <td>{{ p.qty }}</td>
+    <td>{{ p.purchase }}</td>
+    <td>12%</td>
+    <td>{{ p.tax }}</td>
+    <td>{{ p.total }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<br>
+
+<p>Total price without tax: {{ total_without_tax }}</p>
+<p>Total tax payable: {{ total_tax }}</p>
+<p>Net price: {{ net_price }}</p>
+<p>Rounded price: {{ rounded_price }}</p>
+<p>Balance payable: {{ balance }}</p>
+
+<hr>
+
+<h3>Balance Denomination</h3>
+
+{% for note, count in denominations.items %}
+<p>{{ note }} : {{ count }}</p>
+{% endfor %}
+
+</body>
+</html>
+

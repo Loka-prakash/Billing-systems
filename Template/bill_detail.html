@@ -1,0 +1,90 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bill Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .bill-container {
+            background: #ffffff;
+            padding: 30px;
+            width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .bill-info p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .item {
+            background: #f9fafc;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .item p {
+            margin: 4px 0;
+        }
+
+        .total {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bill-container">
+
+    <h2>Bill Details</h2>
+
+    <div class="bill-info">
+        <p><strong>Email:</strong> {{ bill.email }}</p>
+        <p class="total">Total Amount: ₹{{ bill.total_amount }}</p>
+    </div>
+
+    <h3>Items</h3>
+
+    {% for item in items %}
+        <div class="item">
+            <p><strong>Product:</strong> {{ item.product_id }}</p>
+            <p><strong>Price:</strong> ₹{{ item.price }}</p>
+            <p><strong>Quantity:</strong> {{ item.quantity }}</p>
+            <p><strong>Subtotal:</strong> ₹{{ item.subtotal }}</p>
+        </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
+

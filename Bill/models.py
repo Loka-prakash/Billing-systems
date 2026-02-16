@@ -7,7 +7,7 @@ class Bill(models.Model):
     amount_paid = models.FloatField()
     created_at = models.DateTimeField(auto_now_add=True)
 
-    # Denomination fields
+    
     note_500 = models.IntegerField(default=0)
     note_200 = models.IntegerField(default=0)
     note_100 = models.IntegerField(default=0)

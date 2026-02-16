@@ -34,5 +34,4 @@ class BillItemAdmin(admin.ModelAdmin):
     )
     search_fields = ('product_id',)
 
-
-# Register your models here.
+ 

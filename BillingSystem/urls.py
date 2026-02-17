@@ -20,9 +20,9 @@ from Bill import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-       path('', views.home),
+    path('', views.home),
     path('bill/', views.generate_bill),
     path('previous/', views.previous_bills),
-path('bill/<int:bill_id>/', views.bill_detail),
+    path('bill/<int:bill_id>/', views.bill_detail),
 
 ]
